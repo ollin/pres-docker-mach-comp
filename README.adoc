@@ -1,0 +1,6 @@
+pres-docker-mach-comp
+=====================
+
+Docker Machine & Docker Compose - Eine Einführung
+
+* https://github.com/ollin/pres-docker-mach-comp/blob/master/src/asciidoc/presentation.adoc["Folien"]

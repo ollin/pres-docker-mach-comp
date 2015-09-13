@@ -1,0 +1,66 @@
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.2'
+    id 'com.github.jruby-gradle.base' version '0.1.5'
+}
+
+apply plugin: 'com.github.jruby-gradle.base'
+apply plugin: 'java'
+apply plugin: 'org.asciidoctor.convert'
+
+version = '0.1'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    gems 'rubygems:haml:4.0.6'
+}
+
+// see https://github.com/asciidoctor/asciidoctor-gradle-examples/blob/master/asciidoc-to-deckjs-example/build.gradle
+// whithout the download task, I copied the result into the sourceDir
+
+asciidoctor {
+
+    //dependsOn jrubyPrepareGems
+
+    sources {
+        include 'presentation.adoc'
+    }
+
+    resources {
+        from(sourceDir) {
+            include 'images/**'
+        }
+        from(sourceDir) {
+            include 'deck.js/**'
+        }
+    }
+
+    backends 'html5'
+
+
+    attributes 'build-gradle': file('build.gradle'),
+            'sourcedir': project.sourceSets.main.java.srcDirs[0],
+
+            'deckjs_theme': 'swiss',
+            'deckjs_transition': 'horizontal-slide', // 'fade', 'horizontal-slide' , 'vertical-slide'
+            'navigation': '',  // pfeile rechts links auf seite
+            'goto': '',        // g
+            'menu': '',        // m
+            'status': '',      // unten auf seite
+            'split': '',       // lange slides auf mehrere seiten verteilen
+            'blank': '',       // b
+            'toc': '',         // t
+
+            'source-highlighter': 'coderay',
+            'imagesdir': './images',
+            'icons': 'font',
+            'setanchors': 'true',
+            'idprefix': '',
+            'idseparator': '-',
+            'docinfo1': 'true'
+
+
+    options template_dirs: [new File(sourceDir, 'haml').absolutePath]
+}
