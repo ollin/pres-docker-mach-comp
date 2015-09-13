@@ -22,7 +22,7 @@ dependencies {
 
 asciidoctor {
 
-    //dependsOn jrubyPrepareGems
+    dependsOn jrubyPrepareGems
 
     sources {
         include 'presentation.adoc'
