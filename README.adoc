@@ -1,7 +1,5 @@
 = pres-docker-mach-comp
 
-image::https://badges.gitter.im/Join%20Chat.svg["Gitter", link="https://gitter.im/ollin/pres-docker-mach-comp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
-
 image:https://badges.gitter.im/Join%20Chat.svg[link="https://gitter.im/ollin/pres-docker-mach-comp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
 Docker Machine & Docker Compose - Eine Einführung
